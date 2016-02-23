@@ -12,7 +12,7 @@
 # --- --- --- --- ---
 
 # Your Telegram bot token
-TOKEN='YOUR_TOKEN'
+TOKEN='...'
 
 # Should this bot reply to anyone?
 OPENBOT=1
@@ -72,7 +72,7 @@ send_action() {
 	res=$(curl -s "$ACTION_URL" -F "chat_id=$1" -F "action=$2")
 }
 
-# downloadpdf_* $STARTINGURL $CHATID
+# download functions call format: downloadpdf_* $STARTINGURL $CHATID
 
 downloadpdf_sciencedirect() {
 	U=`curl -s -c /tmp/cookie_$2.txt -A "Mozilla/5 (Windows) Gecko" "$1"|grep '<a '|grep -o 'href=['"'"'"][^"'"'"']*['"'"'"]' |sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//'|awk -F'"' '{print $2}'|grep -e ^http|grep pdf|head -n 1`
