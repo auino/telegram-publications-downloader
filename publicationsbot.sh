@@ -24,6 +24,8 @@ ALLOWED_CHATIDS=("")
 #  CONFIGURATION END 
 # --- --- --- --- ---
 
+# Contants
+
 URL='https://api.telegram.org/bot'$TOKEN
 
 FORWARD_URL=$URL'/forwardMessage'
@@ -35,9 +37,11 @@ ACTION_URL=$URL'/sendChatAction'
 FILE_URL='https://api.telegram.org/file/bot'$TOKEN'/'
 UPD_URL=$URL'/getUpdates?offset='
 GET_URL=$URL'/getFile'
+
 OFFSET=0
 declare -A USER MESSAGE URLS CONTACT LOCATION
 
+# send a message through Telegram API
 send_message() {
 	local chat="$1"
 	local text="$(echo "$2" | sed 's/ mykeyboardstartshere.*//g;s/ myfilelocationstartshere.*//g;s/ mylatstartshere.*//g;s/ mylongstartshere.*//g')"
@@ -51,6 +55,7 @@ send_message() {
 	fi
 }
 
+# send a file through Telegram API
 send_file() {
 	[ "$2" = "" ] && return
 	local chat_id=$1
@@ -66,7 +71,6 @@ send_file() {
 }
 
 # typing for text messages, upload_photo for photos, record_video or upload_video for videos, record_audio or upload_audio for audio files, upload_document for general files, find_location for location
-
 send_action() {
 	[ "$2" = "" ] && return
 	res=$(curl -s "$ACTION_URL" -F "chat_id=$1" -F "action=$2")
@@ -94,6 +98,7 @@ downloadpdf_ieee() {
 	echo "Downloaded $U2"
 }
 
+# process a received Telegram message
 process_client() {
 	# User
 	USER[FIRST_NAME]=$(echo "$res" | egrep '\["result",0,"message","chat","first_name"\]' | cut -f 2 | cut -d '"' -f 2)
@@ -149,6 +154,8 @@ process_client() {
 			esac
 	esac
 }
+
+# main program
 
 while true; do {
 	res=$(curl -s $UPD_URL$OFFSET | ./JSON.sh -s)
