@@ -62,5 +62,6 @@ The bot accepts the following commands:
 
 Using `OPENBOT=1` is not recommended, since it would make anyone able to access copyrighted content.
 Instead, it is suggested to limit this access and make the bot able to reply to a specific (and very limited) number of users.
+Also, terms of service of the involved services should be analyzed to evaluate the possibility to use the bot on that services.
 
 I'm not responsible of any illecit use of the program, released for educational purposes.
