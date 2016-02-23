@@ -64,4 +64,4 @@ Using `OPENBOT=1` is not recommended, since it would make anyone able to access 
 By default, `OPENBOT=1` is configured, since it allows to test the behavior of a working bot (default values for `OPENBOT=0` would make the bot not working properly) on a controlled environment.
 Instead, it is suggested to limit this access and make the bot able to reply to a specific (and very limited) number of users.
 
-I'm not responsible of any illecit use of the program, released for educational purpose.
+I'm not responsible of any illecit use of the program, released for educational purposes.
