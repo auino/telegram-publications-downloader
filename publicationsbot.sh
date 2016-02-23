@@ -22,9 +22,9 @@ ALLOWED_CHATIDS=("")
 #  CONFIGURATION END 
 # --- --- --- --- ---
 
-# Contants
+# Constants
 
-# Telegram API contants
+# Telegram API constants
 
 URL='https://api.telegram.org/bot'$TOKEN
 
@@ -41,7 +41,7 @@ GET_URL=$URL'/getFile'
 # offset constant
 OFFSET=0
 
-# http requests contants
+# http requests constants
 
 USERAGENT="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/601.4.4 (KHTML, like Gecko) Version/9.0.3 Safari/601.4.4"
 ACCEPTHEADER="Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
