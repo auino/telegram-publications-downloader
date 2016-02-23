@@ -2,8 +2,6 @@
 
 # 
 # telegram-publications-downloader
-# Author: Enrico Cambiaso
-# Email: enrico.cambiaso[at]gmail.com
 # GitHub project URL: https://github.com/auino/telegram-publications-downloader
 # 
 
