@@ -42,7 +42,7 @@ First of all, if you're not familiar with it, consult [official Telegram Bot API
 
 The `publicationsbot.sh` program supports configuration of the following parameters:
  * `TOKEN` identifies the Telegram token of your bot
- * `OPENBOT` identifies if the bot is able to reply to anyone (`OPENBOT=1`) or not (`OPENBOT=0`)
+ * `OPENBOT` identifies if the bot is able to reply to anyone (`OPENBOT=1`) or not (`OPENBOT=0`, default and suggested feature, see [Disclaimer section](https://github.com/auino/telegram-publications-downloader#dislaimer))
  * `ALLOWED_CHATIDS` identifies the array of chat identifiers of allowed clients (ignored if `OPENBOT=1`); a good value is for instance `ALLOWED_CHATIDS=("01234" "12345")`
 
 ### Supported services
@@ -61,7 +61,6 @@ The bot accepts the following commands:
 ### Dislaimer
 
 Using `OPENBOT=1` is not recommended, since it would make anyone able to access copyrighted content.
-By default, `OPENBOT=1` is configured, since it allows to test the behavior of a working bot (default values for `OPENBOT=0` would make the bot not working properly) on a controlled environment.
 Instead, it is suggested to limit this access and make the bot able to reply to a specific (and very limited) number of users.
 
 I'm not responsible of any illecit use of the program, released for educational purposes.

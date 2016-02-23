@@ -13,7 +13,7 @@
 TOKEN='...'
 
 # Should this bot reply to anyone?
-OPENBOT=1
+OPENBOT=0
 
 # If closed bot, what chat identifiers are used for filtering?
 ALLOWED_CHATIDS=("")
