@@ -33,16 +33,28 @@ This program is written in bash scripting language and it is a fork of [topkecle
 
 ### Configuration
 
-TODO
+First of all, if you're not familiar with it, consult [official Telegram Bot API](https://core.telegram.org/bots).
+
+The `publicationsbot.sh` program supports configuration of the following parameters:
+ * `TOKEN` identifies the Telegram token of your bot
+ * `OPENBOT` identifies if the bot is able to reply to anyone (`OPENBOT=1`) or not (`OPENBOT=0`, default)
+ * `ALLOWED_CHATIDS` identifies the array of chat identifiers of allowed clients (ignored if `OPENBOT=1`); a good value is for instance `ALLOWED_CHATIDS=("01234" "12345")`
+
+### Supported services
+
+Currently, supported services are [ScienceDirect](http://sciencedirect.com) and [IEEExplore](http://ieeexplore.ieee.org).
+
+Note that in order to get resources, the program has to run on a host with access to the documents.
 
 ### Accepted commands
 
-TODO
+The bot accepts the following commands:
+ * `/start`, used when a new chat is instantiated
+ * `/help`, returning help information
+ * `/get <html_url>` to get the PDF file from a given HTML address
 
 ### Dislaimer
 
-TODO
-
-### Contacts
-
-You can find me on Twitter as [@auino](https://twitter.com/auino).
+Using `OPENBOT=1` is not recommended, since it would make anyone able to access copyrighted content.
+Instead, it is suggested to limit this access and make the bot able to reply to a specific (and very limited) number of users.
+I'm not responsible of any use of the code.

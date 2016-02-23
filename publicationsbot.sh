@@ -26,6 +26,8 @@ ALLOWED_CHATIDS=("")
 
 # Contants
 
+# Telegram API contants
+
 URL='https://api.telegram.org/bot'$TOKEN
 
 FORWARD_URL=$URL'/forwardMessage'
@@ -38,7 +40,21 @@ FILE_URL='https://api.telegram.org/file/bot'$TOKEN'/'
 UPD_URL=$URL'/getUpdates?offset='
 GET_URL=$URL'/getFile'
 
+# offset constant
 OFFSET=0
+
+# http requests contants
+
+USERAGENT="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/601.4.4 (KHTML, like Gecko) Version/9.0.3 Safari/601.4.4"
+ACCEPTHEADER="Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+
+# returned messages
+
+STARTMESSAGE="Hi..."
+HELPMESSAGE="Try /get <html_url>"
+
+# End of constants
+
 declare -A USER MESSAGE URLS CONTACT LOCATION
 
 # send a message through Telegram API
@@ -79,22 +95,20 @@ send_action() {
 # download functions call format: downloadpdf_* $STARTINGURL $CHATID
 
 downloadpdf_sciencedirect() {
-	U=`curl -s -c /tmp/cookie_$2.txt -A "Mozilla/5 (Windows) Gecko" "$1"|grep '<a '|grep -o 'href=['"'"'"][^"'"'"']*['"'"'"]' |sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//'|awk -F'"' '{print $2}'|grep -e ^http|grep pdf|head -n 1`
+	U=`curl -s -c /tmp/cookie_$2.txt -A "$USERAGENT" "$1"|grep '<a '|grep -o 'href=['"'"'"][^"'"'"']*['"'"'"]' |sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//'|awk -F'"' '{print $2}'|grep -e ^http|grep pdf|head -n 1`
 	echo "Downloading PDF from $U"
 	rm file_$2.pdf 2> /dev/null
-	curl -s -b /tmp/cookie_$2.txt -A "Mozilla/5 (Windows) Gecko" -L "$U" -o /tmp/file_$2.pdf
+	curl -s -b /tmp/cookie_$2.txt -A "$USERAGENT" -L "$U" -o /tmp/file_$2.pdf
 }
 
 downloadpdf_ieee() {
-	USERAGENT="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/601.4.4 (KHTML, like Gecko) Version/9.0.3 Safari/601.4.4"
-	echo "IEEE: $1"
 	N=`echo "$1"|awk -F'arnumber=' '{print $2}'|awk -F'&' '{print $1}'`
 	U="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=$N"
 	echo "Downloading PDF from web page $U"
-	U2=`curl -s -b /tmp/cookie_$2.txt -a /tmp/cookie_$2.txt -A "$USERAGENT" -L "$U" -e "$U" -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"|grep "<frame"|grep pdf|awk -F'src=' '{print $2}'|awk -F'"' '{print $2}'`
+	U2=`curl -s -b /tmp/cookie_$2.txt -a /tmp/cookie_$2.txt -A "$USERAGENT" -L "$U" -e "$U" -H "$ACCEPTHEADER"|grep "<frame"|grep pdf|awk -F'src=' '{print $2}'|awk -F'"' '{print $2}'`
 	echo "Downloading PDF from $U2"
 	rm file_$2.pdf 2> /dev/null
-	curl -s -b /tmp/cookie_$2.txt -A "$USERAGENT" -e "$U" -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" -L "$U2" -o /tmp/file_$2.pdf
+	curl -s -b /tmp/cookie_$2.txt -A "$USERAGENT" -e "$U" -H "$ACCEPTHEADER" -L "$U2" -o /tmp/file_$2.pdf
 	echo "Downloaded $U2"
 }
 
@@ -113,17 +127,17 @@ process_client() {
 	[ "${LOCATION[*]}" != "" ] && send_location "${USER[ID]}" "${LOCATION[LATITUDE]}" "${LOCATION[LONGITUDE]}"
 	case $MESSAGE in
 		'/help')
-			send_message "${USER[ID]}" "This is bashbot, the Telegram bot written entirely in bash."
+			send_message "${USER[ID]}" "$HELPMESSAGE"
 			;;
 		'/start')
-			send_message "${USER[ID]}" "Hi..."
+			send_message "${USER[ID]}" "$STARTMESSAGE"
 			;;
 		'')
 			;;
 		*)
 			CMD=`echo $MESSAGE|awk '{print $1}'`
 			case $CMD in
-				'/download')
+				'/get')
 					U=`echo $MESSAGE|awk '{print $2}'`
 					CHATID="${USER[ID]}"
 					echo "$MESSAGE $CHATID"
