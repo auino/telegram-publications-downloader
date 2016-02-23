@@ -7,7 +7,12 @@ This program allows you to set up a Telegram bot to download PDF files of scient
 
 ### Program information
 
-This program is written in bash scripting language and it is a fork of [topkecleon/telegram-bot-bash](https://github.com/topkecleon/telegram-bot-bash), making use of [dominictarr/JSON.sh](https://github.com/dominictarr/JSON.sh).
+This program is written in bash scripting language.
+
+The program is a fork of [topkecleon/telegram-bot-bash](https://github.com/topkecleon/telegram-bot-bash), making use of [dominictarr/JSON.sh](https://github.com/dominictarr/JSON.sh).
+
+The bot is able to interpret only messages sent during the execution of the program.
+If a message is sent while the program is not running, it is ignored by the bot.
 
 ### Installation
 
