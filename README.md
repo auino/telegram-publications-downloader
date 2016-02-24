@@ -56,6 +56,7 @@ Note that in order to get resources, the program has to run on a host with acces
 The bot accepts the following commands:
  * `/start`, used when a new chat is instantiated
  * `/help`, returning help information
+ * `/id`, returning the chat identifier of the user sending the message
  * `/get <html_url>` to get the PDF file from a given HTML address
 
 ### Dislaimer

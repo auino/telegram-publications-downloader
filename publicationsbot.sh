@@ -50,6 +50,7 @@ ACCEPTHEADER="Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;
 
 STARTMESSAGE="Hi..."
 HELPMESSAGE="Try /get <html_url>"
+IDMESSAGEPRE="Your chat identifier is "
 
 # End of constants
 
@@ -124,11 +125,14 @@ process_client() {
 	}
 	[ "${LOCATION[*]}" != "" ] && send_location "${USER[ID]}" "${LOCATION[LATITUDE]}" "${LOCATION[LONGITUDE]}"
 	case $MESSAGE in
+		'/start')
+			send_message "${USER[ID]}" "$STARTMESSAGE"
+			;;
 		'/help')
 			send_message "${USER[ID]}" "$HELPMESSAGE"
 			;;
-		'/start')
-			send_message "${USER[ID]}" "$STARTMESSAGE"
+		'/id')
+			send_message "${USER[ID]}" "$IDMESSAGEPRE ${USER[ID]}"
 			;;
 		'')
 			;;
