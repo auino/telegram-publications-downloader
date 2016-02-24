@@ -50,7 +50,7 @@ ACCEPTHEADER="Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;
 
 STARTMESSAGE="Hi..."
 HELPMESSAGE="Try /get <html_url>"
-IDMESSAGEPRE="Your chat identifier is "
+IDMESSAGEPRE="Your chat identifier is"
 
 # End of constants
 
