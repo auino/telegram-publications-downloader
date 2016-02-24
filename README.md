@@ -36,7 +36,6 @@ If a message is sent while the program is not running, it is ignored by the bot.
     bash publicationsbot.sh
     ```
 
-
 ### Configuration ###
 
 First of all, if you're not familiar with it, consult [official Telegram Bot API](https://core.telegram.org/bots).
@@ -45,7 +44,6 @@ The `publicationsbot.sh` program supports configuration of the following paramet
  * `TOKEN` identifies the Telegram token of your bot
  * `OPENBOT` identifies if the bot is able to reply to anyone (`OPENBOT=1`) or not (`OPENBOT=0`, default and suggested feature, see [Disclaimer section](https://github.com/auino/telegram-publications-downloader#dislaimer))
  * `ALLOWED_CHATIDS` identifies the array of chat identifiers of allowed clients (ignored if `OPENBOT=1`); a good value is for instance `ALLOWED_CHATIDS=("01234" "12345")`
-
 
 ### Supported services ###
 
@@ -62,7 +60,6 @@ The bot accepts the following commands:
  * `/help`, returning help information
  * `/id`, returning the chat identifier of the user sending the message
  * `/get <html_url>` to get the PDF file from a given HTML address
-
 
 ### Dislaimer ###
 
