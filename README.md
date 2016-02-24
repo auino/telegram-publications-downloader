@@ -5,7 +5,7 @@ Original project is [auino/telegram-publications-downloader](https://github.com/
 
 This program allows you to set up a Telegram bot to download PDF files of scientific publications from URLs passed as input.
 
-### Program information
+### Program information ###
 
 This program is written in bash scripting language.
 
@@ -14,7 +14,7 @@ The program is a fork of [topkecleon/telegram-bot-bash](https://github.com/topke
 The bot is able to interpret only messages sent during the execution of the program.
 If a message is sent while the program is not running, it is ignored by the bot.
 
-### Installation
+### Installation ###
 
  1. Create a new Telegram bot by contacting [@BotFather](http://telegram.me/botfather) and following [official Telegram instructions](https://core.telegram.org/bots#botfather)
  2. Clone the repository on your server:
@@ -36,7 +36,7 @@ If a message is sent while the program is not running, it is ignored by the bot.
     bash publicationsbot.sh
     ```
 
-### Configuration
+### Configuration ###
 
 First of all, if you're not familiar with it, consult [official Telegram Bot API](https://core.telegram.org/bots).
 
@@ -45,13 +45,15 @@ The `publicationsbot.sh` program supports configuration of the following paramet
  * `OPENBOT` identifies if the bot is able to reply to anyone (`OPENBOT=1`) or not (`OPENBOT=0`, default and suggested feature, see [Disclaimer section](https://github.com/auino/telegram-publications-downloader#dislaimer))
  * `ALLOWED_CHATIDS` identifies the array of chat identifiers of allowed clients (ignored if `OPENBOT=1`); a good value is for instance `ALLOWED_CHATIDS=("01234" "12345")`
 
-### Supported services
+### Supported services ###
 
-Currently, supported services are [ScienceDirect](http://sciencedirect.com) and [IEEExplore](http://ieeexplore.ieee.org).
+Currently, supported services are the following ones:
+ * [ScienceDirect](http://sciencedirect.com)
+ * [IEEExplore](http://ieeexplore.ieee.org)
 
 Note that in order to get resources, the program has to run on a host with access to the documents.
 
-### Accepted commands
+### Accepted commands ###
 
 The bot accepts the following commands:
  * `/start`, used when a new chat is instantiated
@@ -59,7 +61,7 @@ The bot accepts the following commands:
  * `/id`, returning the chat identifier of the user sending the message
  * `/get <html_url>` to get the PDF file from a given HTML address
 
-### Dislaimer
+### Dislaimer ###
 
 Using `OPENBOT=1` is not recommended, since it would make anyone able to access copyrighted content.
 Instead, it is suggested to limit this access and make the bot able to reply to a specific (and very limited) number of users.
