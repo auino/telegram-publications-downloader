@@ -3,7 +3,7 @@ Download scientific publications from Telegram
 
 Original project is [auino/telegram-publications-downloader](https://github.com/auino/telegram-publications-downloader).
 
-This program allows you to set up a Telegram bot to download PDF files of scientific publications from URLs passed as input.
+This program allows you to set up a Telegram bot to download PDF files of scientific academic research publications from HTML URLs passed as input.
 
 ### Program information ###
 
