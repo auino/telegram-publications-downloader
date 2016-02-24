@@ -48,7 +48,7 @@ ACCEPTHEADER="Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;
 
 # returned messages
 
-STARTMESSAGE="Hi..."
+STARTMESSAGE="Hi...\nTry with /help"
 HELPMESSAGE="Try /get <html_url>"
 IDMESSAGEPRE="Your chat identifier is"
 
