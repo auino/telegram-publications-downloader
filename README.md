@@ -64,7 +64,6 @@ The bot accepts the following commands:
 ### Available Bots ###
 
 An [apposite wiki page](https://github.com/auino/telegram-publications-downloader/wiki/Available-Bots) enlisting all available bots is available.
-
 [Contact me](https://github.com/auino/telegram-publications-downloader#contacts) to insert your bot into the wiki.
 
 ### Dislaimer ###
