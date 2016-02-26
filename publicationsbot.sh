@@ -48,8 +48,8 @@ ACCEPTHEADER="Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;
 
 # returned messages
 
-STARTMESSAGE="Hi...\nTry with /help"
-HELPMESSAGE="Try /get <html_url>"
+STARTMESSAGE="This bot allows users to directly get PDF files of scientific publications from Telegram.\nFor more information visit the following URL:\nhttps://github.com/auino/telegram-publications-downloader\n\nTo begin using the bot, try with the /help command."
+HELPMESSAGE="You can get PDF files from a given HTML address, with the following command:\n/get <html_url>"
 IDMESSAGEPRE="Your chat identifier is"
 
 # End of constants
