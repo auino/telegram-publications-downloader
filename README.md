@@ -59,7 +59,13 @@ The bot accepts the following commands:
  * `/start`, used when a new chat is instantiated
  * `/help`, returning help information
  * `/id`, returning the chat identifier of the user sending the message
- * `/get <html_url>` to get the PDF file from a given HTML address
+ * `/get <html_url>` to get the PDF file from a given HTML address (this is the only command applying the specified filters described in [Configuration section](https://github.com/auino/telegram-publications-downloader#configuration), if any)
+
+### Available Bots ###
+
+An [apposite wiki page](https://github.com/auino/telegram-publications-downloader/wiki/Available-Bots) enlisting all available bots is available.
+
+[Contact me](https://github.com/auino/telegram-publications-downloader#contacts) to insert your bot into the wiki.
 
 ### Dislaimer ###
 
@@ -68,3 +74,7 @@ Instead, it is suggested to limit this access and make the bot able to reply to 
 Also, terms of service of the involved services should be analyzed to evaluate the possibility to use the bot on that services.
 
 I'm not responsible of any illecit use of the program, released for educational purposes.
+
+### Contacts ###
+
+You can find me on Twitter as [@auino](https://twitter.com/auino).
