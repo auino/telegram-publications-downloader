@@ -98,6 +98,7 @@ downloadpdf_sciencedirect() {
 	echo "Downloading PDF from $U"
 	rm file_$2.pdf 2> /dev/null
 	curl -s -b /tmp/cookie_$2.txt -A "$USERAGENT" -L "$U" -o /tmp/file_$2.pdf
+	echo "Downloaded $U"
 }
 
 downloadpdf_ieee() {
