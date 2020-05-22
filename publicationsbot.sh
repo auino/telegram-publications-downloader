@@ -176,6 +176,7 @@ process_client() {
 
 while true; do {
 	res=$(curl -s $UPD_URL$OFFSET | ./JSON.sh -s)
+	res="${res//$/\\$}"
 	# Target
 	USER[ID]=$(echo "$res" | egrep '\["result",0,"message","chat","id"\]' | cut -f 2)
 	# Offset
